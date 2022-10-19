@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import Footer from './components/footer/footer';
 
 import { Header } from './components/header/header';
 import { Home } from './pages/home/home';
@@ -21,6 +22,7 @@ export function App() {
           />
         </Routes>
       </section>
+      <Footer />
     </div>
   );
 }
