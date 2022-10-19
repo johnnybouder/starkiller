@@ -1,14 +1,14 @@
 export enum AllegienceType {
-  Sith,
-  Jedi,
+  Sith = 'Sith',
+  Jedi = 'Jedi',
 }
 
 export enum SaberType {
-  Red,
-  Blue,
-  Green,
-  Black,
-  Purple,
+  Red = 'Red',
+  Blue = 'Blue',
+  Green = 'Green',
+  Black = 'Black',
+  Purple = 'Purple',
 }
 
 export interface Character {

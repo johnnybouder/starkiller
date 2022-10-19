@@ -55,6 +55,17 @@ export function Header() {
               </li>
               <li className="usa-nav__primary-item">
                 <NavLink
+                  id="characters-link"
+                  to="/characters"
+                  className={`usa-nav__link ${
+                    location.pathname === '/characters' ? 'usa-current' : ''
+                  }`}
+                >
+                  Characters
+                </NavLink>
+              </li>
+              <li className="usa-nav__primary-item">
+                <NavLink
                   id="login-link"
                   to="/login"
                   className={`usa-nav__link ${
