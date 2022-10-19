@@ -17,7 +17,7 @@ Note: the sample application is intended to provide a starting point for buildin
 
 ## Next Steps
 
-The following are a list of items that can be completed in order to further build out this application and learn along the way:
+The following are a list of items that can be completed in order to further build out this application and learn along the way (see the solution-1 branch for a potential solution):
 
 - [ ] Add Basic Footer to App
 - [ ] Add Characters Dashboard Page (Page, Route, Data Table, Top Navigation)
