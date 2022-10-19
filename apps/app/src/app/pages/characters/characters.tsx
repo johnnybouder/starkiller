@@ -1,4 +1,5 @@
 import { Table } from '@starkiller/base';
+import { NavLink } from 'react-router-dom';
 import { characters } from '../../types/__test_data__/character.fixture';
 
 /* eslint-disable-next-line */
@@ -22,7 +23,11 @@ export function Characters(props: CharacterProps) {
             data={characters.map(({ id, name, allegeance, lightSaber }) => {
               return {
                 id,
-                name,
+                name: (
+                  <NavLink id={`character-link-${id}`} to={`/characters/${id}`}>
+                    {name}
+                  </NavLink>
+                ),
                 allegeance,
                 lightSaber,
               };
