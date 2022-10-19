@@ -17,6 +17,7 @@ export * from './lib/icon/icon';
 export * from './lib/label/label';
 export * from './lib/modal/modal';
 export * from './lib/radio-button/radio-button';
+export * from './lib/search/search';
 export * from './lib/table/table';
 export * from './lib/tag/tag';
 export * from './lib/text-area/text-area';
