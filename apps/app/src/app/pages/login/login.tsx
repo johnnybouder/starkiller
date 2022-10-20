@@ -14,21 +14,21 @@ import { FormEvent, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { REQUIRED_FIELD_MESSAGE } from '../../constants';
 import useAuth from '../../hooks/useAuth';
-import { User } from '../../types/user';
+import { useSelector } from 'react-redux';
+import { selectUserData } from '../../store/user-slice';
 
 /* eslint-disable-next-line */
-export interface LoginProps {
-  loginCallback: (user: User) => void;
-}
+export interface LoginProps {}
 
-export function Login({ loginCallback }: LoginProps) {
+export function Login(props: LoginProps) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [hasLoginError, setHasLoginError] = useState(false);
   const [usernameErrors, setUsernameErrors] = useState([] as string[]);
   const [passwordErrors, setPasswordErrors] = useState([] as string[]);
-  const { login, currentUser } = useAuth();
+  const { login } = useAuth();
   const navigate = useNavigate();
+  const currentUser = useSelector(selectUserData);
 
   const handleLogin = (event: FormEvent) => {
     event.preventDefault();
@@ -55,7 +55,6 @@ export function Login({ loginCallback }: LoginProps) {
 
   useEffect(() => {
     if (currentUser) {
-      loginCallback(currentUser);
       navigate('/');
     }
   });

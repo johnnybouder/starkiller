@@ -1,13 +1,14 @@
 import { Alert, AlertType } from '@starkiller/base';
 import { Link } from 'react-router-dom';
-import { User } from '../../types/user';
+import { useSelector } from 'react-redux';
+import { selectUserData } from '../../store/user-slice';
 
 /* eslint-disable-next-line */
-export interface HomeProps {
-  currentUser: User | undefined;
-}
+export interface HomeProps {}
 
-export function Home({ currentUser }: HomeProps) {
+export function Home(props: HomeProps) {
+  const currentUser = useSelector(selectUserData);
+
   return (
     <div className="grid-container">
       {currentUser ? (

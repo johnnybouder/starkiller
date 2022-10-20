@@ -1,22 +1,22 @@
-import { useState } from 'react';
-import { User } from '../types/user';
 import { user1 } from '../types/__test_data__/user.fixture';
+import { useDispatch } from 'react-redux';
+import { setIsLoggedIn } from '../store/auth-slice';
+import { setCurrentUser } from '../store/user-slice';
 
 const useAuth = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>();
-  const [currentUser, setCurrentUser] = useState<User | null>();
+  const dispatch = useDispatch();
 
   const login = () => {
-    setIsLoggedIn(true);
-    setCurrentUser(user1);
+    dispatch(setIsLoggedIn(true));
+    dispatch(setCurrentUser(user1));
   };
 
   const logout = () => {
-    setIsLoggedIn(false);
-    setCurrentUser(null);
+    dispatch(setIsLoggedIn(false));
+    dispatch(setCurrentUser(null));
   };
 
-  return { isLoggedIn, currentUser, login, logout };
+  return { login, logout };
 };
 
 export default useAuth;
