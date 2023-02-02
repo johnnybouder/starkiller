@@ -1,8 +1,8 @@
 import { Card } from '@starkiller/base';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import useApi from '../../../hooks/useApi';
 import { Character } from '../../../types/character';
-import { characters } from '../../../types/__test_data__/character.fixture';
 
 /* eslint-disable-next-line */
 export interface CharacterDetailsProps {}
@@ -10,12 +10,19 @@ export interface CharacterDetailsProps {}
 export function CharacterDetails(props: CharacterDetailsProps) {
   const [character, setCharacter] = useState<Character>();
   const { id } = useParams();
+  const { loading, item, getItem } = useApi();
+
+  useEffect(() => {
+    if (!loading && item) {
+      setCharacter(item);
+    }
+  }, [loading, item]);
 
   useEffect(() => {
     if (id) {
-      const currentChar = characters.find((elem) => elem.id === parseInt(id));
-      setCharacter(currentChar);
+      getItem(parseInt(id));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   return (

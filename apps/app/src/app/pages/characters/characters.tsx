@@ -1,27 +1,36 @@
 import { Search, SearchSize, Table } from '@starkiller/base';
 import { FormEvent, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import useApi from '../../hooks/useApi';
 import { Character } from '../../types/character';
-import { characters } from '../../types/__test_data__/character.fixture';
 
 /* eslint-disable-next-line */
 export interface CharacterProps {}
 
 export function Characters(props: CharacterProps) {
-  const [data, setData] = useState<Character[]>(characters);
+  const [filteredData, setFilteredData] = useState<Character[]>([]);
   const [searchText, setSearchText] = useState('');
+  const { loading, items, getItems } = useApi();
+
   const handleSearch = (formEvent: FormEvent, text: string) => {
     formEvent.preventDefault();
     setSearchText(text);
   };
 
   useEffect(() => {
-    setData(
-      characters.filter((character) =>
-        character.name.toLowerCase().includes(searchText.toLowerCase())
-      )
-    );
-  }, [searchText]);
+    if (!loading && items) {
+      setFilteredData(
+        items.filter((character) =>
+          character.name.toLowerCase().includes(searchText.toLowerCase())
+        )
+      );
+    }
+  }, [items, loading, searchText]);
+
+  useEffect(() => {
+    getItems();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="grid-container">
@@ -44,7 +53,7 @@ export function Characters(props: CharacterProps) {
               { id: 'allegeance', name: 'Allegeance' },
               { id: 'lightSaber', name: 'Light Saber' },
             ]}
-            data={data.map(({ id, name, allegeance, lightSaber }) => {
+            data={filteredData.map(({ id, name, allegeance, lightSaber }) => {
               return {
                 id,
                 name: (
