@@ -25,6 +25,7 @@ The following are a list of items that can be completed in order to further buil
 - [ ] Add Login Form (should allow any username and password combo, if not provided, provide form validation messaging)
 - [ ] Add Search Functionality to Dashboard Page (note: this will require the addition of a new component to the library)
 - [ ] Replace Prop Drilling state management with Redux
+- [ ] Update to populate data using external starkiller-api
 
 ### Additional Notes
 
