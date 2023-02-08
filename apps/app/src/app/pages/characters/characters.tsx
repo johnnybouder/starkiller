@@ -50,10 +50,10 @@ export function Characters(props: CharacterProps) {
             columns={[
               { id: 'id', name: 'ID' },
               { id: 'name', name: 'Name' },
-              { id: 'allegeance', name: 'Allegeance' },
+              { id: 'allegiance', name: 'Allegiance' },
               { id: 'lightSaber', name: 'Light Saber' },
             ]}
-            data={filteredData.map(({ id, name, allegeance, lightSaber }) => {
+            data={filteredData.map(({ id, name, allegiance, lightSaber }) => {
               return {
                 id,
                 name: (
@@ -61,7 +61,7 @@ export function Characters(props: CharacterProps) {
                     {name}
                   </NavLink>
                 ),
-                allegeance,
+                allegiance,
                 lightSaber,
               };
             })}

@@ -32,7 +32,7 @@ export function CharacterDetails(props: CharacterDetailsProps) {
           <div className="grid-col">
             <h1>{character.name}</h1>
             <Card id="character-card">
-              <div>Allegience: {character.allegeance}</div>
+              <div>Allegience: {character.allegiance}</div>
               <div>Light Saber: {character.lightSaber}</div>
             </Card>
           </div>

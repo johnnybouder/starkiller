@@ -14,6 +14,6 @@ export enum SaberType {
 export interface Character {
   id: number;
   name: string;
-  allegeance: AllegienceType;
+  allegiance: AllegienceType;
   lightSaber: SaberType;
 }
